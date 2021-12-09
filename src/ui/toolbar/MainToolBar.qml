@@ -62,6 +62,9 @@ Rectangle {
         anchors.bottomMargin:   1
         anchors.top:            parent.top
         anchors.bottom:         parent.bottom
+        anchors.horizontalCenter: parent.horizontalCenter
+//        anchors.right:          undefined
+//        anchors.verticalCenter: parent.verticalCenter
         spacing:                ScreenTools.defaultFontPixelWidth / 2
 
         QGCToolBarButton {
@@ -83,6 +86,58 @@ Rectangle {
             onClicked:          _activeVehicle.closeVehicle()
             visible:            _activeVehicle && _communicationLost && currentToolbar === flyViewToolbar
         }
+
+//        QGCToolBarButton {
+//            id:                     takeoff
+//            Layout.preferredHeight: viewButtonRow.height
+//            icon.source:            "/res/takeoff"
+//            logo:                   true
+//            //onClicked:              mainWindow.showToolSelectDialog()
+//        }
+
+//        QGCToolBarButton {
+//            id:                     returntobase
+//            Layout.preferredHeight: viewButtonRow.height
+//            icon.source:            "/res/rtl"
+//            logo:                   true
+//            //onClicked:              mainWindow.showToolSelectDialog()
+//        }
+
+//        QGCToolBarButton {
+//            id:                     land
+//            Layout.preferredHeight: viewButtonRow.height
+//            icon.source:            "/res/land"
+//            logo:                   true
+//            //onClicked:              mainWindow.showToolSelectDialog()
+//        }
+
+//        QGCToolBarButton {
+//            id:                     gps
+//            Layout.preferredHeight: viewButtonRow.height
+//            icon.source:            "/res/waypoint"
+//            logo:                   true
+//            onClicked:              mainWindow.showToolSelectDialog()
+//        }
+
+//        QGCToolBarButton {
+//            id:                     batteryinfo
+//            Layout.preferredHeight: viewButtonRow.height
+//            icon.source:            "/res/waves"
+//            logo:                   true
+//            onClicked:              mainWindow.showToolSelectDialog()
+//        }
+
+//        Rectangle {
+//            property int side: 100
+//            width: side; height: side
+
+//            color: "red"
+
+//            MouseArea {
+//                anchors.fill: parent
+//                onClicked: console.log("Button clicked!")
+//            }
+//        }
     }
 
     QGCFlickable {

@@ -612,11 +612,14 @@ Item {
         ToolStrip {
             id:                 toolStrip
             anchors.margins:    _toolsMargin
-            anchors.left:       parent.left
+            anchors.horizontalCenter: parent.horizontalCenter
+//            anchors.left:       parent.left
+//            anchors.right:      parent.right
             anchors.top:        parent.top
             z:                  QGroundControl.zOrderWidgets
             maxHeight:          parent.height - toolStrip.y
             title:              qsTr("Plan")
+
 
             readonly property int flyButtonIndex:       0
             readonly property int fileButtonIndex:      1
@@ -641,11 +644,11 @@ Item {
                     ToolStripAction {
                         text:                   qsTr("File")
                         enabled:                !_planMasterController.syncInProgress
-                        visible:                true
+                        visible:                false // True
                         showAlternateIcon:      _planMasterController.dirty
                         iconSource:             "/qmlimages/MapSync.svg"
                         alternateIconSource:    "/qmlimages/MapSyncChanged.svg"
-                        dropPanelComponent:     syncDropPanel
+//                         dropPanelComponent:     syncDropPanel
                     },
                     ToolStripAction {
                         text:       qsTr("Takeoff")
@@ -669,7 +672,7 @@ Item {
                         text:               _missionController.isROIActive ? qsTr("Cancel ROI") : qsTr("ROI")
                         iconSource:         "/qmlimages/MapAddMission.svg"
                         enabled:            !_missionController.onlyInsertTakeoffValid
-                        visible:            toolStrip._isMissionLayer && _planMasterController.controllerVehicle.roiModeSupported
+                        visible:            false //toolStrip._isMissionLayer && _planMasterController.controllerVehicle.roiModeSupported
                         checkable:          !_missionController.isROIActive
                         onCheckedChanged:   _addROIOnClick = checked
                         onTriggered: {
@@ -685,7 +688,7 @@ Item {
                         text:               _singleComplexItem ? _missionController.complexMissionItemNames[0] : qsTr("Pattern")
                         iconSource:         "/qmlimages/MapDrawShape.svg"
                         enabled:            _missionController.flyThroughCommandsAllowed
-                        visible:            toolStrip._isMissionLayer
+                        visible:            false //toolStrip._isMissionLayer
                         dropPanelComponent: _singleComplexItem ? undefined : patternDropPanel
                         onTriggered: {
                             toolStrip.allAddClickBoolsOff()
@@ -816,14 +819,14 @@ Item {
                     QGCTabButton {
                         text:       qsTr("Mission")
                     }
-                    QGCTabButton {
-                        text:       qsTr("Fence")
-                        enabled:    _geoFenceController.supported
-                    }
-                    QGCTabButton {
-                        text:       qsTr("Rally")
-                        enabled:    _rallyPointController.supported
-                    }
+//                    QGCTabButton {
+//                        text:       qsTr("Fence")
+//                        enabled:    _geoFenceController.supported
+//                    }
+//                    QGCTabButton {
+//                        text:       qsTr("Rally")
+//                        enabled:    _rallyPointController.supported
+//                    }
                 }
             }
             //-------------------------------------------------------
